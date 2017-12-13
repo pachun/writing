@@ -1,0 +1,115 @@
+
+
+
+
+
+Every time they all pass, you're
+saving 10 minutes, sure. Every time they fail, how much time do you spend
+determining whether or not the code is actually broken or the tests are stale?
+
+and tells me
+deterministically whether or not my code works than have a test suite which
+takes 10 minutes to run and tells me one of three things. Consider how long it
+takes to get _anything_ done when you write code. 10 minutes of your time 
+
+Those extra 10 minutes your test suite spends running to deterministically tell
+you whether or not your code works are better spent reading another blog post
+than looking into an issue that has a 50% chance of being a stale,
+deletion-worthy, non-deterministic test.
+
+
+Remember what you're
+sacrificing when you adulterate your test suite with tests that don't actually
+do the job of tests: proving that code works. As long as your tests prove that
+code works faster than a QA team can go through every product requirement's
+flow, you're saving money.
+
+
+
+
+
+
+
+
+
+
+The product requirements remained the same and the code continued to fulfill
+them, yet the tests begin failing.
+
+If `func begin()` is
+renamed `func start()` the code still _works_; Tapping the
+ListenWith app icon still shows Lyn's playlists, yet the latter two
+tests break and the acceptance test will still pass because it is indicative of
+working code.
+
+The unit tests break because they concern themselves with _how_ tapping the app icon ends
+up showing Lyn's playlists. The higher level acceptance
+test remains indicative of working code because it only concerns itself with
+_weather or not_ tapping the app icon shows Lyn's playlists - which is the
+correct, english-to-automated-test translation of the product requirement.
+
+[Acceptance tests are more declarative](https://tylermcginnis.com/imperative-vs-declarative-programming/).
+
+> "Many (if not all) declarative approaches have some sort of underlying imperative abstraction." - Tyler McGinnis
+
+Whether `A -> B -> C` or `A -> X -> Y -> Z -> C`, the tests should indicate
+whether or not the code works; which is to assert whether or not _eventually,
+however it may happen_ `A -> C`.
+
+## Unit Testing Fallacy: "Unit Tests Provide In-Depth Documentation"
+
+The fallacy is that failing unit tests will point you towards a more narrowly
+scoped section of the broken code.
+
+This is true _sometimes_.
+
+It's a fallacy because __once a test suite is adulterated with
+implementation-testing unit tests, it's no longer a litmus test indicating
+whether or not the code works__. It's passage still surely indicates working code,
+however its failure doesn't necessarily indicate broken code. Failures now
+indicate one of two possible circumstances:
+
+1. The code doesn't work
+2. The implementation-detail preoccupied unit tests are no longer accurate, let
+alone in-depth documentation
+
+## TDD and Unit Testing Teaches You How to Write Better Code
+
+_Better code_ is because it's more easily understood and adapted. It's simpler.
+
+You'll learn how to write simpler code by strictly adhering to my favorite rule
+of TDD (as paraphased by me):
+
+> _Write the simplest code possible to progress the failing test's error message or make the failing test pass_.
+
+This outlaws looking for clever [seams](https://www.google.com/search?ei=ddoxWu-YK-fcjwSD56G4CQ&q=working+effectively+with+legacy+code+seam&oq=seam+working+effectively+with+leg&gs_l=psy-ab.3.0.0i22i30k1.8458.13294.0.14637.33.30.0.0.0.0.188.3182.10j17.27.0....0...1c.1.64.psy-ab..6.24.2901...0j0i67k1j0i131k1j0i10k1j0i13k1j0i13i10k1j0i13i10i30k1j0i22i10i30k1j33i21k1j33i160k1.0.ns3e2yyUGVs)
+in an effort to be over-aggressively DRY, which I think plagues many developers.
+It encourages copying and pasting, which many developers are sadly
+trained to hate without exception.
+
+[Sandy Metz explains this well when she talks about why duplication is
+better than the wrong abstraction](https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
+
+Please don't share code between two flows by feathering in conditionals in an
+effort to save characters.
+
+[Remember to only write the simplest possible code to
+progress the unit test's error message or make it pass!](http://pachulski.me/2016-04-03/beginning-tdd-start-by-hardcoding-to-get-a-green-test).
+
+## Unit Tests Are Faster
+
+This is almost always true and it's possibly the most commonly used argument in
+favor of unit testing.
+
+
+My argument for unit testing: training wheels for learning how to write code
+better. It _does_ draw out better design patterns _at the time_. However,
+product requirement flux is a reality. When you add a new feature and tests
+break, they may not be indicative of working code and you have to be able to
+determine whether or not you should adapt or remove those tests. Make sure
+you're confident. If you delete a test which actually confirms a product
+requirement's been met your doing a big disservice to your team.
+
+* I still believe in writing tests first - I don't think I'll ever go back on
+  this. You should have a clear definition of your goal before you start
+  puttering around with code. Start with a thesis.
