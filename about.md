@@ -1,9 +1,8 @@
 ---
-layout: post
+layout: default
 title: "About"
-author: "Nicholas"
 permalink: /about/
 ---
 
-Hello!
-
+## I'm just a guy, ya know?
+<img src="/learning_to_cook.png"/>
