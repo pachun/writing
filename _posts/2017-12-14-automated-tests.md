@@ -24,7 +24,7 @@ When this test passes we know the code works. When it fails, we know the code
 does not work. It's indicative of a fulfilled product requirement and that's
 reassuring.
 
-Consider these tests instead:
+Consider these two unit tests instead:
 
 _Test 1:_
   1. Tap the ListenWith app icon
@@ -33,6 +33,14 @@ _Test 1:_
 _Test 2:_
   1. Call `func begin()`
   2. Assert that Lindsey's Spotify playlist names are displayed
+
+Or, to put it another way:
+
+```
+Given A causes B
+And   B causes C
+Then  A causes C
+```
 
 Transitive assertions are concessions in comparison with acceptance tests
 because they're not indicative of working code. They're indicative of working
