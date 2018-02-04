@@ -4,5 +4,24 @@ title: "About"
 permalink: /about/
 ---
 
-## I'm just a guy, ya know?
-<img src="/learning_to_cook.png"/>
+TV I like...
+
+* Game of Thrones
+* The Office
+* West World
+* Silicon Valley
+* The Night Of
+* Band of Brothers
+* Breaking Bad
+* Mind Hunter
+* Fargo
+* House of Cards
+* Sons of Anarchy
+* Suits
+* Frasier
+* The Newsroom
+* Narcos
+* Stranger Things
+* Godless
+* The People v. O.J. Simpson
+* Ozark
