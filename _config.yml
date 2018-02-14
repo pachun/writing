@@ -3,7 +3,7 @@ permalink:      /:year-:month-:day/:title
 
 # Setup
 title:          Nick Pachulski
-paginate:       5
+paginate:       100
 baseurl:        ""
 url:            "pachulski.me"
 
