@@ -5,7 +5,7 @@ permalink:      /:year-:month-:day/:title
 title:          Nick Pachulski
 paginate:       100
 baseurl:        ""
-url:            "pachulski.me"
+url:            "pachulski.me/writing"
 
 # Assets
 sass:
