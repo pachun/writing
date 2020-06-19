@@ -18,11 +18,11 @@ end
 
 Hardcode the return value:
 
-{% highlight ruby %}
+```ruby
 def even?(num)
   return true
 end
-{% endhighlight %}
+```
 
 The test passes now.
 
@@ -42,11 +42,11 @@ validated often.**
 
 Let's pretend we wrote this code to make our lonesome test pass:
 
-{% highlight ruby %}
+```ruby
 def even?(num)
   (num % 2) == 0
 end
-{% endhighlight %}
+```
 
 Contrary to what you may think, this is worse than before.
 
@@ -59,23 +59,23 @@ Developer Diane comes along with the intention of adding a new
 feature to the app. She changes what used to be named our `even?()`
 function to have this line at the bottom:
 
-{% highlight ruby %}
+```ruby
 return true
-{% endhighlight %}
+```
 
 She runs the tests and they all pass. However, back when we added
 our feature without properly driving it out with tests, we added code
 contingent upon the assumption that `even?` also returned false when passed an
 odd number:
 
-{% highlight ruby %}
+```ruby
 def qualifies_for_refund?(customer)
   return (
     customer.is_gold_member? ||
     even?(customer.some_statistic)
   )
 end
-{% endhighlight %}
+```
 
 Because we wrote code dependent upon an untested assumption, Diane was able to
 invalidate it without causing any tests to fail even though she properly
@@ -91,27 +91,27 @@ it's not even being used and that's [cruft](https://www.google.com/search?source
 
 When we last left our code, we were here:
 
-{% highlight ruby %}
+```ruby
 it "returns true when passed an even number" do
   even = even?(2)
   expect(even).to be(true)
 end
-{% endhighlight %}
+```
 
-{% highlight ruby %}
+```ruby
 def even?(num)
   return true
 end
-{% endhighlight %}
+```
 
 Now let's write our other, long awaited test:
 
-{% highlight ruby %}
+```ruby
 it "returns false when passed an odd number" do
   even = even?(1)
   expect(even).to be(false)
 end
-{% endhighlight %}
+```
 
 Only *now* do we need to make the return value of `even?` contingent upon its
 argument.
@@ -119,10 +119,10 @@ argument.
 Only now *should* we make the return value of `even?` contingent upon its
 argument.
 
-{% highlight ruby %}
+```ruby
 def even?(num)
   (num % 2) == 0
 end
-{% endhighlight %}
+```
 
 *Now* we're done.
