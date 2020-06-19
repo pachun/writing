@@ -8,12 +8,12 @@ tags: []
 
 Let's test drive an even number function:
 
-{% highlight ruby %}
+```ruby
 it "returns true when passed an even number" do
   even = even?(2)
   expect(even).to be(true)
 end
-{% endhighlight %}
+```
 
 
 Hardcode the return value:
